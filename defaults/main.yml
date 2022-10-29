@@ -1,0 +1,51 @@
+---
+# defaults file for chris2k20-workstation
+
+workstation_binaries:
+- name: minikube
+  dest: "/usr/local/bin/minikube"
+  url: "https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
+- name: fubectl
+  dest: "{{ ansible_env.HOME }}/fubectl.source"
+  url: "https://rawgit.com/kubermatic/fubectl/master/fubectl.source"
+
+workstation_aptrepos_ubuntu:
+- name: nextcloud
+  repo: "ppa:nextcloud-devs/client"
+
+workstation_packages_ubuntu:
+  - tilix
+  - tmux
+  - gnome-tweak-tool
+  - nextcloud-client
+  - hstr
+
+workstation_debs_ubuntu:
+  - name: vscode
+    deb: https://update.code.visualstudio.com/1.72.2/linux-deb-x64/stable
+  - name: teamviewer
+    deb: https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+  - name: openlens
+    deb: https://github.com/MuhammedKalkan/OpenLens/releases/download/v6.1.14/OpenLens-6.1.14.deb
+
+workstation_snaps_ubuntu:
+  - chromium
+  - keepassxc
+  - spotify
+
+workstation_config_ubuntu:
+- dest: /etc/bash.bashrc
+  content: |
+      # HSTR configuration - add this to ~/.bashrc
+      alias hh=hstr                    # hh to be alias for hstr
+      export HSTR_CONFIG=hicolor       # get more colors
+      shopt -s histappend              # append new history items to .bash_history
+      export HISTCONTROL=ignorespace   # leading space hides commands from history
+      export HISTFILESIZE=100000000    # increase history file size (default is 500)
+      export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
+      # ensure synchronization between bash memory and history file
+      export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+      # if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
+      if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hstr -- \C-j"'; fi
+      # if this is interactive shell, then bind 'kill last command' to Ctrl-x k
+      if [[ $- =~ .*i.* ]]; then bind '"\C-xk": "\C-a hstr -k \C-j"'; fi
