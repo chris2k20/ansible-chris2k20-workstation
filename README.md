@@ -18,6 +18,17 @@ Dependencies
 
 None.
 
+Example Quickstart
+------------------
+
+If you are very lucky download that role via your ansible-galaxy into our `/usr/share/ansible/roles` and run ansible (no playbook or ansible structure needed): 
+
+    # download that role from github
+	ansible-galaxy role install  git+https://github.com/chris2k20/ansible-chris2k20-workstation -p /usr/share/ansible/roles --ignore-errors --force
+        
+    # run the role without a playbook
+	ansible localhost -m include_role -a "name=ansible-chris2k20-workstation"
+
 Example Playbook
 ----------------
 
