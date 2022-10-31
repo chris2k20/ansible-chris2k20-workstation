@@ -25,8 +25,10 @@ workstation_debs_ubuntu:
     deb: https://update.code.visualstudio.com/1.72.2/linux-deb-x64/stable
   - name: teamviewer
     deb: https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
-  - name: openlens
+  - name: openlens for kubernetes
     deb: https://github.com/MuhammedKalkan/OpenLens/releases/download/v6.1.14/OpenLens-6.1.14.deb
+  - name: abricotine markdown editor
+    deb: https://github.com/brrd/abricotine/releases/download/v1.1.4/abricotine_1.1.4_amd64.deb
 
 workstation_snaps_ubuntu:
   - chromium
