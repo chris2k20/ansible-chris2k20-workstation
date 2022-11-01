@@ -56,5 +56,5 @@ workstation_config_ubuntu:
 workstation_dconf_ubuntu:
 - name: setting layouts
   key: "/org/gnome/libgnomekbd/keyboard/layouts"
-  value: "['us', 'se']"
+  value: "['de', 'us']"
   state: present
