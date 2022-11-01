@@ -49,3 +49,10 @@
   with_items: "{{ workstation_config_ubuntu }}"
   when: ansible_distribution == 'Ubuntu'
 
+- name: "Configure dconf (Ubuntu)"
+  community.general.dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+    state: "{{ item.state | default('present') }}"
+  with_items: "{{ workstation_dconf_ubuntu }}"
+  when: ansible_distribution == 'Ubuntu'
