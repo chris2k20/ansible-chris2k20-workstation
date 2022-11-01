@@ -19,6 +19,7 @@ workstation_packages_ubuntu:
   - gnome-tweak-tool
   - nextcloud-client
   - hstr
+  - conky
 
 workstation_debs_ubuntu:
   - name: vscode
