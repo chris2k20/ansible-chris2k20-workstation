@@ -1,6 +1,9 @@
 ---
 # defaults file for chris2k20-workstation
 
+workstation_folders:
+- path: "{{ ansible_env.HOME }}/.config/conky"
+
 workstation_binaries:
 - name: minikube
   dest: "/usr/local/bin/minikube"

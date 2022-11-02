@@ -4,6 +4,14 @@
 - name: Setup
   setup:
 
+- name: Create folder
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: "{{ item.state | default('directory') }}"
+    mode:  "{{ item.mode | default('0750') }}"
+  become: true
+  with_items: "{{ workstation_folders }}"
+
 - name: Download binaries
   ansible.builtin.get_url:
     url: "{{ item.url }}"
