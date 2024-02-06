@@ -49,6 +49,13 @@
   with_items: "{{ workstation_debs_ubuntu }}"
   when: ansible_distribution == 'Ubuntu'
 
+- name: "Install rpm-packages (CentOS)"
+  yum:
+    deb: "{{ item.deb }}"
+  become: true
+  with_items: "{{ workstation_rpms_centos }}"
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
 - name: "Create static config (Ubuntu)"
   copy:
     content: "{{ item.content }}"

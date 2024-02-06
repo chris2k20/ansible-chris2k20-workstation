@@ -34,6 +34,10 @@ workstation_debs_ubuntu:
   - name: abricotine markdown editor
     deb: https://github.com/brrd/abricotine/releases/download/v1.1.4/abricotine_1.1.4_amd64.deb
 
+workstation_rpms_centos:
+  - name: openlens for kubernetes
+    deb: https://github.com/MuhammedKalkan/OpenLens/releases/download/v6.5.2-366/OpenLens-6.5.2-366.x86_64.rpm
+
 workstation_snaps_ubuntu:
   - chromium
   - keepassxc
