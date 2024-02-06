@@ -54,7 +54,7 @@
     deb: "{{ item.deb }}"
   become: true
   with_items: "{{ workstation_rpms_centos }}"
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Fedora' or ansible_distribution == 'Red Hat Enterprise Linux'
 
 - name: "Create static config (Ubuntu)"
   copy:
