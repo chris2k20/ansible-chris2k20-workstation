@@ -65,3 +65,6 @@ workstation_dconf_ubuntu:
   key: "/org/gnome/libgnomekbd/keyboard/layouts"
   value: "['de', 'us']"
   state: present
+
+kubectl_plugins:
+- stern

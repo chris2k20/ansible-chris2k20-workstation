@@ -71,3 +71,7 @@
     state: "{{ item.state | default('present') }}"
   with_items: "{{ workstation_dconf_ubuntu }}"
   when: ansible_distribution == 'Ubuntu'
+
+- name: Install kubectl plugins via krew
+  command: "kubectl krew install {{ item }}"
+  with_items: "{{ kubectl_plugins }}"
