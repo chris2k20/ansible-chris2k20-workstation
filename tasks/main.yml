@@ -75,3 +75,10 @@
 - name: Install kubectl plugins via krew
   command: "kubectl krew install {{ item }}"
   with_items: "{{ kubectl_plugins }}"
+
+- name: Execute defined Bash scripts
+  ansible.builtin.shell: "{{ item.script }}"
+  become: true
+  with_items: "{{ workstation_scripts }}"
+  loop_control:
+    label: "{{ item.name }}"

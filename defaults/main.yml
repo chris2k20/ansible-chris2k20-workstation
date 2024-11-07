@@ -68,3 +68,18 @@ workstation_dconf_ubuntu:
 
 kubectl_plugins:
 - stern
+
+workstation_scripts:
+  - name: "Install Oh My Zsh"
+    script: |
+      #!/bin/bash
+      # Install Zsh if not present
+      if ! command -v zsh &> /dev/null; then
+        sudo apt-get update
+        sudo apt-get install -y zsh
+      fi
+      # Install Oh My Zsh
+      sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || {
+        echo "Oh My Zsh installation failed"
+        exit 1
+      }
